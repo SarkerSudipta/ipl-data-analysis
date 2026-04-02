@@ -6,27 +6,27 @@ on: # specifies when the workflow should be triggered (2 trigegrs: workflow_disp
     - cron: "30 4 * 4,5 *"  #cron -> schedule for repeating task based on time
                           # "min hour day_of_month month day_of_week"
                           #run everyday at 4:30AM everyday in April,May
-  jobs: #jobs to be executed in the workflow (set of steps executed in a runner/container)
-    update: #name of the job
-      runs-on: ubuntu-latest #run of latest version of Ubuntu runner (vm with Ubunut installed) 
+jobs: #jobs to be executed in the workflow (set of steps executed in a runner/container)
+  update: #name of the job
+    runs-on: ubuntu-latest #run of latest version of Ubuntu runner (vm with Ubunut installed) 
 
-      steps: 
-        - name: Check out repository 
+    steps: 
+      - name: Check out repository 
           uses: actions/checkout@v4 #uses the checkout action in Github which downloads the repo into the vm
 
-        - name: Set up Python 
-          uses: actions/setup-python@v6 #uses the setup python action to set up python in the runner
-          with:
-            python-version: "3.11" #pass the parameter i.e. Python version to the action
+      - name: Set up Python 
+        uses: actions/setup-python@v6 #uses the setup python action to set up python in the runner
+        with:
+        python-version: "3.11" #pass the parameter i.e. Python version to the action
         
-        - name: Install dependencies
-          run: | #run the following shell commands. Pipe | allows to specify multi line commands
-            python -m pip install --upgrade pip
-            pip install pandas tabulate
+      - name: Install dependencies
+        run: | #run the following shell commands. Pipe | allows to specify multi line commands
+          python -m pip install --upgrade pip
+          pip install pandas tabulate
 
-        - name: Run build matches script
-          run: python src/build_matches_table.python
-        
-        - name: Run analytics script
-          run: python src/analyze_matches.py
+      - name: Run build matches script
+        run: python src/build_matches_table.python
+      
+      - name: Run analytics script
+        run: python src/analyze_matches.py
           
