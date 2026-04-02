@@ -12,7 +12,7 @@ jobs: #jobs to be executed in the workflow (set of steps executed in a runner/co
 
     steps: 
       - name: Check out repository 
-          uses: actions/checkout@v4 #uses the checkout action in Github which downloads the repo into the vm
+        uses: actions/checkout@v4 #uses the checkout action in Github which downloads the repo into the vm
 
       - name: Set up Python 
         uses: actions/setup-python@v6 #uses the setup python action to set up python in the runner
