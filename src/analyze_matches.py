@@ -10,7 +10,7 @@ def main():
 
     BASE_DIR = Path(__file__).resolve().parent.parent
 
-    path = BASE_DIR / "data" / "processed" / "matches_table.csv"
+    path = BASE_DIR / "data" / "processed" / "matches_tables.csv"
     df = pd.read_csv(path)
 
     '''
