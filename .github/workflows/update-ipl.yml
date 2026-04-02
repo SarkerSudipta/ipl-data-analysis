@@ -17,7 +17,7 @@ jobs: #jobs to be executed in the workflow (set of steps executed in a runner/co
       - name: Set up Python 
         uses: actions/setup-python@v6 #uses the setup python action to set up python in the runner
         with:
-        python-version: "3.11" #pass the parameter i.e. Python version to the action
+          python-version: "3.11" #pass the parameter i.e. Python version to the action
         
       - name: Install dependencies
         run: | #run the following shell commands. Pipe | allows to specify multi line commands
