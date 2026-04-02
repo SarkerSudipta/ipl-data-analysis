@@ -12,7 +12,7 @@
 | M Chinnaswamy Stadium, Bengaluru                                        |                  10 |                    9 |                 9 |               10 |
 | MA Chidambaram Stadium, Chepauk, Chennai                                |                  15 |                   18 |                16 |               17 |
 | Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur      |                   5 |                    5 |                 6 |                4 |
-| Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh |                True |                False |              True |            False |
+| Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh |                   1 |                    0 |                 1 |                0 |
 | Maharashtra Cricket Association Stadium, Pune                           |                  10 |                    3 |                 5 |                8 |
 | Narendra Modi Stadium, Ahmedabad                                        |                  16 |                   17 |                15 |               18 |
 | Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh        |                   3 |                    2 |                 2 |                3 |

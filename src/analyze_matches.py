@@ -26,53 +26,40 @@ def main():
     '''
     # print(df.dtypes)
 
-    # total_matches, batting_first_won = 0
-    # for row in df:
-    #     total_matches += 1
-    #     if batting_first_result(row):
-    #         batting_first_won += 1
-
+    #create the new columns for stats and apply the helper functions on row by row (axis=1)
     df["batting_first_won"] = df.apply(batting_first_result, axis=1) # axis 1 -> operate on rows
     df["batting_second_won"] = df.apply(batting_second_result, axis=1)
     df["toss_winner_won"] = df.apply(toss_winner_result, axis=1)
     df["toss_loser_won"] = df.apply(toss_loser_result, axis=1)
 
+    #The derived columns (batting_first_won, etc.) were created using the helper functions that return T/F/None.
+    #Bcuz of this mix, pandas stored these columns as object instead of boolean/int. This caused inconsisten behaviour
+    #during agg (sum) returning T/F instead of counts for single-row groups.
+    #Fix: Convert these cols to nullable ints where None -> N/A which isn't counted in sum()
+    cols = ["batting_first_won", "batting_second_won", "toss_winner_won", "toss_loser_won"]
+    df[cols] = df[cols].astype("Int64")
 
 
     # Filter 2020-2025 season only
     df_filtered = df[df["year"].isin([2020,2021,2022,2023,2024,2025])]
 
+    #stats per year
+    #group by year and sum the stats columns
     summary = df_filtered.groupby("year").agg(
         batting_first_won = ("batting_first_won", "sum"),
         batting_second_won = ("batting_second_won", "sum"),
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
     )
-
+    #write the season summary to a md file
     with open("../output/season_summary.md", "w") as f:
         f.write(summary.to_markdown())
 
     #print(df_filtered["venue"].unique())
-    ekana_stadium_stats = df_filtered[df_filtered["venue"] == "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow"]
-    # print(ekana_stadium_stats.head())
-    batting_first_won = ekana_stadium_stats["batting_first_won"].sum()
-    batting_second_won = ekana_stadium_stats["batting_second_won"].sum()
-    toss_winner_won = ekana_stadium_stats["toss_winner_won"].sum()
-    toss_loser_won = ekana_stadium_stats["toss_loser_won"].sum()
-    toss_winner_chose_bat = (ekana_stadium_stats["toss_decision"] == "bat").sum()
-    toss_winner_chose_field = (ekana_stadium_stats["toss_decision"] == "field").sum()
+   
 
-    ekana_stadium_summary = pd.DataFrame({
-        "venue": ["Ekana Stadium"],
-        "batting_first_won": [batting_first_won],
-        "batting_second_won": [batting_second_won],
-        "toss_winner_won":[toss_winner_won],
-        "toss_loser_won":[toss_loser_won],
-        "toss_winner_chose_bat":[toss_winner_chose_bat],
-        "toss_winner_chose_field":[toss_winner_chose_field]
-    })
-    print(ekana_stadium_summary)
-
+    
+    
     stadium_stats = df_filtered.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
         batting_second_won = ("batting_second_won", "sum"),
@@ -81,7 +68,7 @@ def main():
     )
     with open("../output/venue_stats.md", "w") as f:
         f.write(stadium_stats.to_markdown())
-
+        
 
 #count of batting_first_won
 def batting_first_result(row):
