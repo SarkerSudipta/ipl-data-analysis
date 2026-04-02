@@ -36,10 +36,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent #Base dir = C:\Users\sarke\Dow
 
 
 # store the path to the raw data in a Path object
-data_folder = Path("../data/raw/cricksheet_ipl_json")
+json_files_path = BASE_DIR / "data"/ "raw" / "cricksheet_ipl_json"
 
 #search the folder in the Path with Wildcards (*) and convert it to a list all json files
-json_files = list(data_folder.glob("*.json"))
+json_files = list(json_files_path.glob("*.json"))
 
 # number of json files should be 1173 i.e. total number of matches
 # print(len(json_files))
