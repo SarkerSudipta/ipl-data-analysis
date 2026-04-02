@@ -4,8 +4,12 @@ Analytics:
 2. How many times has toss winner won?
 '''
 import pandas as pd
+from pathlib import Path
 
 def main():
+
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
 
     df = pd.read_csv("../data/processed/matches_tables.csv")
 
@@ -51,22 +55,28 @@ def main():
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
     )
+    #create the path to season_summary.md
+    output_path = BASE_DIR / "output" / "season_summary.md"
+    output_path.parent.mkdir(parents=True, exist_ok=True) # #skip mkdir if dir "output" exists
+
     #write the season summary to a md file
-    with open("../output/season_summary.md", "w") as f:
+    with open(output_path, "w") as f:
         f.write(summary.to_markdown())
 
     #print(df_filtered["venue"].unique())
    
 
     
-    
+
     stadium_stats = df_filtered.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
         batting_second_won = ("batting_second_won", "sum"),
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum")
     )
-    with open("../output/venue_stats.md", "w") as f:
+    output_path = BASE_DIR / "output" / "venue_stats.md" #path to the venue_stats.md
+    output_path.parent.mkdir(parents=True, exist_ok=True) #skip mkdir if dir "output" exists
+    with open(output_path, "w") as f:
         f.write(stadium_stats.to_markdown())
         
 

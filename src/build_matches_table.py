@@ -27,6 +27,14 @@ JSON looks like:
 
 from pathlib import Path
 
+#create the base dir path
+#__file__ = abs path of the current file (can be relative sometimes)
+#Path()   = convert the string path to a path object
+#resolve()= coverts it to absolute path (guarentees it to be abs)
+#parent   = moves 1 level up 
+BASE_DIR = Path(__file__).resolve().parent.parent #Base dir = C:\Users\sarke\Downloads\ipl-data-analysis
+
+
 # store the path to the raw data in a Path object
 data_folder = Path("../data/raw/cricksheet_ipl_json")
 
@@ -98,4 +106,6 @@ df = pd.DataFrame(all_matches)
 print(df.head())
 print(df.shape)
 
-df.to_csv("../data/processed/matches_tables.csv", index=False)
+output_path = BASE_DIR / "data" / "processed" / "matches_tables.csv"
+output_path.parent.mkdir(parents=True, exist_ok=True) #mkdir if dir doesn't exist
+df.to_csv(output_path, index=False)
