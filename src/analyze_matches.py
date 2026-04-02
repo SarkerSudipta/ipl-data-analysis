@@ -10,8 +10,8 @@ def main():
 
     BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-    df = pd.read_csv("../data/processed/matches_tables.csv")
+    path = BASE_DIR / "data" / "processed" / "matches_table.csv"
+    df = pd.read_csv(path)
 
     '''
     check the data types of all the columns
