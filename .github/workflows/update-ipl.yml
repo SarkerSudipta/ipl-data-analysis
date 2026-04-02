@@ -1,0 +1,6 @@
+name : Update IPL analytics
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: "30 4 * * *"
