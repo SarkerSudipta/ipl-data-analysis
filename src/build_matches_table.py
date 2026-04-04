@@ -56,10 +56,30 @@ import json
 
 all_matches = []
 
+i = 0
+
 for file_path in json_files:
     try:
         with open(file_path) as f:
             data = json.load(f)
+
+        # JSON file structure
+        # if (i == 0):
+        #     print(data.keys())
+        #     print(data["info"].keys())
+        #     print(type(data["innings"]))
+        #     print(len(data["innings"]))
+        #     print("innings[0] keys: ",data["innings"][0].keys())
+        #     print(" team: ", type(data["innings"][0]["team"]))
+        #     print(" overs: ", type(data["innings"][0]["overs"]))
+        #     print("   overs keys: ", data["innings"][0]["overs"][0].keys())
+        #     print(" powerplays: ", type(data["innings"][0]["powerplays"]))
+        #     print("   powerplays keys: ", data["innings"][0]["powerplays"][0].keys())
+            
+        #     print("innings[1] keys: ",data["innings"][1].keys())
+        #     print(data["innings"][1]["target"].keys())
+        #     #  print(data["innings"][1]["overs"].keys())
+        #     i += 1
 
         # extract fields
         info = data.get("info", {})  # if "info" is missing, info becomes an empty dictionary and the script keeps going.
@@ -73,6 +93,12 @@ for file_path in json_files:
         toss_winner = toss_info.get("winner", {})
         toss_decision = toss_info.get("decision", {})
         
+        target = innings[1].get("target", {}).get("runs")
+        first_batting_team_score = None
+        if(target is not None):
+          first_batting_team_score = target - 1          
+            
+
         outcome_info = info.get("outcome", {})
         winner = outcome_info.get("winner")
         
@@ -91,6 +117,7 @@ for file_path in json_files:
             "toss_decision": toss_decision,
             "first_batting_team": innings[0].get("team") if len(innings) > 0 else None,
             "second_batting_team": innings[1].get("team") if len(innings) > 1 else None,
+            "first_batting_team_score": first_batting_team_score,
             "winner": info.get("outcome", {}).get("winner"),
             "won_by": won_by,
             "win_margin": win_margin
