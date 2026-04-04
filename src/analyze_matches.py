@@ -76,17 +76,20 @@ def main():
     ------------------------------------------------------------
     '''
 
-    stadium_stats = df_filtered.groupby("venue").agg(
+    venue_stats_2020_25 = df_filtered.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
         batting_second_won = ("batting_second_won", "sum"),
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
         batting_first_innings_median_score = ("first_batting_team_score", "median")
     )
+    venue_stats_2020_25["highest_score_chased"] = (
+        df_filtered.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
+    )
     output_path = BASE_DIR / "output" / "venue_stats_2020-25.md" #path to the venue_stats.md
     output_path.parent.mkdir(parents=True, exist_ok=True) #skip mkdir if dir "output" exists
     with open(output_path, "w") as f:
-        f.write(stadium_stats.to_markdown())
+        f.write(venue_stats_2020_25.to_markdown())
     
 
     '''
@@ -103,8 +106,8 @@ def main():
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
         first_innings_median_score = ("first_batting_team_score", "median"),
-        #group all batting_second_won and get their max first_innings_score
     )
+    #group all batting_second_won and get their max first_innings_score
     venue_stats_2026["highest_score_chased"] = (
         df_2026.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
     )
