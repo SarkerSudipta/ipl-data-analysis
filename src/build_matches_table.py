@@ -1,5 +1,7 @@
 '''
- Goal: Loop through all the files and build a table of all matches
+ Goal: Loop through all the JSON files and build a table of all matches
+ This file must be running before running another other analysis scripts like analyze_matches.py
+ since analysis depends on the csv table of all matches
 
 JSON looks like:
 {

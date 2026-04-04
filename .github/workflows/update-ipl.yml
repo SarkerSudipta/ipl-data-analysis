@@ -1,5 +1,8 @@
 name : Update IPL analytics
 
+permissions:
+  contents: write # permission for GitHub Actions to push commits back to the repo
+
 on: # specifies when the workflow should be triggered (2 trigegrs: workflow_dispatch and schedule)
   workflow_dispatch: #manual trigger via github UI
   schedule: #define schedule for automatic trigger.Based on cron expression
@@ -24,9 +27,31 @@ jobs: #jobs to be executed in the workflow (set of steps executed in a runner/co
           python -m pip install --upgrade pip
           pip install pandas tabulate
 
+      # Download the latest JSON files & extract it and overwrite the old ones
+      - name : Download latest IPL JSON data
+        run: |
+          # curl : transfers data to/from a server.
+          # -L : curl will automatically follow the redirects until it reaches the final destination.
+          curl -L "<>" -o data/raw/ipl_json.zip
+          unzip -o data/raw/ipl_json.zip -d data/raw/cricksheet_ipl_json #-o: overwrite, -d: destination for extraction
+      
+      # run the python scripts
       - name: Run build matches script
         run: python src/build_matches_table.py
       
       - name: Run analytics script
         run: python src/analyze_matches.py
+      
+      # commit & push the changes
+      - name: Commit and push updated outputs
+        run: |
+          # set identity of git using GitHub bot in the container
+          # https://github.com/marketplace/actions/bot-details
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
+          git add data/processed output
+          git diff --cached --quiet || git commit -m "Update IPL analytics outputs after a game" #only commit if there has been changes
+          git push
+
+

@@ -66,7 +66,15 @@ def main():
     #print(df_filtered["venue"].unique())
    
 
-    
+    '''
+    ------------------------------------------------------------
+    Venue stats for 2020-2025 season
+    Stats for each venue include:   #batting first won
+                                    #batting second won
+                                    #toss_winner_won
+                                    #toss_loser_won
+    ------------------------------------------------------------
+    '''
 
     stadium_stats = df_filtered.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
@@ -74,11 +82,36 @@ def main():
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum")
     )
-    output_path = BASE_DIR / "output" / "venue_stats.md" #path to the venue_stats.md
+    output_path = BASE_DIR / "output" / "venue_stats_2020-25.md" #path to the venue_stats.md
     output_path.parent.mkdir(parents=True, exist_ok=True) #skip mkdir if dir "output" exists
     with open(output_path, "w") as f:
         f.write(stadium_stats.to_markdown())
-        
+    
+
+    '''
+    -----------------------------------------------------------------------------
+    Venue stats for 2026
+    -----------------------------------------------------------------------------
+    '''
+
+    df_2026 = df[df["year"] == 2026]
+
+    venue_stats_2026 = df_2026.groupby("venue").agg(
+        batting_first_won = ("batting_first_won", "sum"),
+        batting_second_won = ("batting_second_won", "sum"),
+        toss_winner_won = ("toss_winner_won", "sum"),
+        toss_loser_won = ("toss_loser_won", "sum")
+    )
+    # create the path to the .md file
+    venue_stats_2026_path = BASE_DIR / "output" / "venue_stats_2026.md"
+    
+    #open the md file to write the venue_stats df as a md file
+    with open(venue_stats_2026_path, "w") as f:
+        f.write(venue_stats_2026.to_markdown())
+
+
+
+
 
 #count of batting_first_won
 def batting_first_result(row):
