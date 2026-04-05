@@ -86,6 +86,9 @@ def main():
     venue_stats_2020_25["highest_score_chased"] = (
         df_filtered.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
     )
+    venue_stats_2020_25["median_first_innings_winning_score"] = (
+        df_filtered.groupby("venue")[["first_batting_team_score", "batting_first_won"]].apply(median_first_innings_winning_score)
+    )
     output_path = BASE_DIR / "output" / "venue_stats_2020-25.md" #path to the venue_stats.md
     output_path.parent.mkdir(parents=True, exist_ok=True) #skip mkdir if dir "output" exists
     with open(output_path, "w") as f:
@@ -111,6 +114,9 @@ def main():
     venue_stats_2026["highest_score_chased"] = (
         df_2026.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
     )
+    venue_stats_2026["median_first_innings_winning_score"] = (
+        df_2026.groupby("venue")[["first_batting_team_score", "batting_first_won"]].apply(median_first_innings_winning_score)
+    )
     # create the path to the .md file
     venue_stats_2026_path = BASE_DIR / "output" / "venue_stats_2026.md"
     
@@ -124,6 +130,11 @@ def main():
 def highest_score_chased(grouped_df):
     batting_second_won_rows = grouped_df[grouped_df["batting_second_won"] == 1]
     return batting_second_won_rows["first_batting_team_score"].max()
+
+def median_first_innings_winning_score(grouped_df):
+    batting_first_won_rows = grouped_df[grouped_df["batting_first_won"] == 1]
+    return batting_first_won_rows["first_batting_team_score"].median()
+
 
 
 #count of batting_first_won
