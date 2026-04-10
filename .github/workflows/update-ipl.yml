@@ -28,7 +28,7 @@ jobs: #jobs to be executed in the workflow (set of steps executed in a runner/co
           pip install pandas tabulate
 
       # Download the latest JSON files & extract it and overwrite the old ones
-      - name : Download latest IPL JSON data
+      - name: Download latest IPL JSON data
         run: |
           # curl : transfers data to/from a server.
           # -L : curl will automatically follow the redirects until it reaches the final destination.
