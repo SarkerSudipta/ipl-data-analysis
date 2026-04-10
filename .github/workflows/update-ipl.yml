@@ -32,8 +32,8 @@ jobs: #jobs to be executed in the workflow (set of steps executed in a runner/co
         run: |
           # curl : transfers data to/from a server.
           # -L : curl will automatically follow the redirects until it reaches the final destination.
-          curl -L "https://cricsheet.org/downloads/ipl_json.zip" -o data/raw/ipl_json.zip
-          unzip -o data/raw/ipl_json.zip -d data/raw/cricksheet_ipl_json #-o: overwrite, -d: destination for extraction
+          curl -L "https://cricsheet.org/downloads/ipl_json.zip" -o "data/raw/ipl_json.zip"
+          unzip -o "data/raw/ipl_json.zip" -d "data/raw/cricksheet_ipl_json" #-o: overwrite, -d: destination for extraction
       
       # run the python scripts
       - name: Run build matches script
