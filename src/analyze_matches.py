@@ -2,6 +2,7 @@
 Analytics:
 1. How many times has batting first team won?
 2. How many times has toss winner won?
+3. Veneu stats
 '''
 import pandas as pd
 from pathlib import Path
@@ -81,7 +82,9 @@ def main():
         batting_second_won = ("batting_second_won", "sum"),
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
-        batting_first_innings_median_score = ("first_batting_team_score", "median")
+        batting_first_innings_median_score = ("first_batting_team_score", "median"),
+        batting_first_q1 = ("first_batting_team_score", lambda x: x.quantile(0.25)),
+        batting_first_q3 = ("first_batting_team_score", lambda x : x.quantile(0.75))
     )
     venue_stats_2020_25["highest_score_chased"] = (
         df_filtered.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
@@ -109,7 +112,10 @@ def main():
         toss_winner_won = ("toss_winner_won", "sum"),
         toss_loser_won = ("toss_loser_won", "sum"),
         first_innings_median_score = ("first_batting_team_score", "median"),
+        batting_first_q1 = ("first_batting_team_score", lambda x: x.quantile(0.25)),
+        batting_first_q3 = ("first_batting_team_score", lambda x : x.quantile(0.75))
     )
+    
     #group all batting_second_won and get their max first_innings_score
     venue_stats_2026["highest_score_chased"] = (
         df_2026.groupby("venue")[["first_batting_team_score", "batting_second_won"]].apply(highest_score_chased)
