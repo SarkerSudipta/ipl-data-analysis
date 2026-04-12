@@ -45,8 +45,8 @@ def main():
     df[cols] = df[cols].astype("Int64")
 
 
-    # Filter 2020-2025 season only
-    df_filtered = df[df["year"].isin([2020,2021,2022,2023,2024,2025])]
+    # Filter 2020-2026 season only for season_summary_stats
+    df_filtered = df[df["year"].isin([2020,2021,2022,2023,2024,2025,2026])]
 
     #stats per year
     #group by year and sum the stats columns
@@ -76,6 +76,9 @@ def main():
                                     #toss_loser_won
     ------------------------------------------------------------
     '''
+
+    # Filter 2020-2025 season for venue_stats
+    df_filtered = df[df["year"].isin([2020,2021,2022,2023,2024,2025])]
 
     venue_stats_2020_25 = df_filtered.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
