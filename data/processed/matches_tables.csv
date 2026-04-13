@@ -135,6 +135,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 829709.json,2015-04-10,2015,Maharashtra Cricket Association Stadium,Kings XI Punjab,field,Rajasthan Royals,Kings XI Punjab,162,Rajasthan Royals,runs,26.0
 598044.json,2013-05-04,2013,"Rajiv Gandhi International Stadium, Uppal",Delhi Daredevils,bat,Delhi Daredevils,Sunrisers Hyderabad,80,Sunrisers Hyderabad,wickets,6.0
 1473445.json,2025-03-28,2025,"MA Chidambaram Stadium, Chepauk, Chennai",Chennai Super Kings,field,Royal Challengers Bengaluru,Chennai Super Kings,196,Royal Challengers Bengaluru,runs,50.0
+1527690.json,2026-04-11,2026,"Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",Punjab Kings,field,Sunrisers Hyderabad,Punjab Kings,219,Punjab Kings,wickets,6.0
 419132.json,2010-03-30,2010,Brabourne Stadium,Mumbai Indians,field,Kings XI Punjab,Mumbai Indians,163,Mumbai Indians,wickets,4.0
 392200.json,2009-04-29,2009,Kingsmead,Kings XI Punjab,bat,Kings XI Punjab,Mumbai Indians,119,Kings XI Punjab,runs,3.0
 548346.json,2012-04-29,2012,Wankhede Stadium,Mumbai Indians,field,Deccan Chargers,Mumbai Indians,100,Mumbai Indians,wickets,5.0
@@ -203,6 +204,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 598065.json,2013-05-17,2013,"Rajiv Gandhi International Stadium, Uppal",Sunrisers Hyderabad,bat,Sunrisers Hyderabad,Rajasthan Royals,136,Sunrisers Hyderabad,runs,23.0
 501237.json,2011-05-02,2011,Wankhede Stadium,Kings XI Punjab,field,Mumbai Indians,Kings XI Punjab,159,Mumbai Indians,runs,23.0
 1304086.json,2022-04-27,2022,"Wankhede Stadium, Mumbai",Gujarat Titans,field,Sunrisers Hyderabad,Gujarat Titans,195,Gujarat Titans,wickets,5.0
+1527692.json,2026-04-12,2026,"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Gujarat Titans,field,Lucknow Super Giants,Gujarat Titans,164,Gujarat Titans,wickets,7.0
 335992.json,2008-04-26,2008,M Chinnaswamy Stadium,Rajasthan Royals,field,Royal Challengers Bangalore,Rajasthan Royals,135,Rajasthan Royals,wickets,7.0
 1254110.json,2021-10-04,2021,Dubai International Cricket Stadium,Delhi Capitals,field,Chennai Super Kings,Delhi Capitals,136,Delhi Capitals,wickets,3.0
 598024.json,2013-04-21,2013,Feroz Shah Kotla,Mumbai Indians,bat,Mumbai Indians,Delhi Daredevils,161,Delhi Daredevils,wickets,9.0
@@ -260,6 +262,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 981019.json,2016-05-29,2016,M Chinnaswamy Stadium,Sunrisers Hyderabad,bat,Sunrisers Hyderabad,Royal Challengers Bangalore,208,Sunrisers Hyderabad,runs,8.0
 336006.json,2008-05-05,2008,M Chinnaswamy Stadium,Kings XI Punjab,field,Royal Challengers Bangalore,Kings XI Punjab,126,Kings XI Punjab,wickets,6.0
 548321.json,2012-04-19,2012,Feroz Shah Kotla,Deccan Chargers,bat,Deccan Chargers,Delhi Daredevils,157,Delhi Daredevils,wickets,5.0
+1527689.json,2026-04-10,2026,"Barsapara Cricket Stadium, Guwahati",Rajasthan Royals,field,Royal Challengers Bengaluru,Rajasthan Royals,201,Rajasthan Royals,wickets,6.0
 1178402.json,2019-04-13,2019,Wankhede Stadium,Rajasthan Royals,field,Mumbai Indians,Rajasthan Royals,187,Rajasthan Royals,wickets,4.0
 598053.json,2013-05-09,2013,Subrata Roy Sahara Stadium,Kolkata Knight Riders,bat,Kolkata Knight Riders,Pune Warriors,152,Kolkata Knight Riders,runs,46.0
 1136584.json,2018-04-25,2018,M.Chinnaswamy Stadium,Chennai Super Kings,field,Royal Challengers Bangalore,Chennai Super Kings,205,Chennai Super Kings,wickets,5.0
@@ -625,6 +628,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 729317.json,2014-04-30,2014,Dubai International Cricket Stadium,Mumbai Indians,field,Sunrisers Hyderabad,Mumbai Indians,172,Sunrisers Hyderabad,runs,15.0
 548335.json,2012-04-22,2012,Barabati Stadium,Kolkata Knight Riders,field,Deccan Chargers,Kolkata Knight Riders,126,Kolkata Knight Riders,wickets,5.0
 829757.json,2015-04-26,2015,Feroz Shah Kotla,Royal Challengers Bangalore,field,Delhi Daredevils,Royal Challengers Bangalore,95,Royal Challengers Bangalore,wickets,10.0
+1527691.json,2026-04-11,2026,"MA Chidambaram Stadium, Chepauk, Chennai",Delhi Capitals,field,Chennai Super Kings,Delhi Capitals,212,Chennai Super Kings,runs,23.0
 548366.json,2012-05-13,2012,"Punjab Cricket Association Stadium, Mohali",Deccan Chargers,bat,Deccan Chargers,Kings XI Punjab,190,Kings XI Punjab,wickets,4.0
 1136592.json,2018-05-02,2018,Arun Jaitley Stadium,Rajasthan Royals,field,Delhi Daredevils,Rajasthan Royals,150,Delhi Daredevils,runs,4.0
 548339.json,2012-04-25,2012,"Punjab Cricket Association Stadium, Mohali",Kings XI Punjab,bat,Kings XI Punjab,Mumbai Indians,168,Mumbai Indians,wickets,4.0
