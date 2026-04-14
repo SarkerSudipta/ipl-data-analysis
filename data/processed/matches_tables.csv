@@ -34,6 +34,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 1082637.json,2017-05-07,2017,"Punjab Cricket Association IS Bindra Stadium, Mohali",Gujarat Lions,field,Kings XI Punjab,Gujarat Lions,189,Gujarat Lions,wickets,6.0
 501249.json,2011-05-09,2011,Sawai Mansingh Stadium,Rajasthan Royals,field,Chennai Super Kings,Rajasthan Royals,196,Chennai Super Kings,runs,63.0
 501264.json,2011-05-21,2011,Himachal Pradesh Cricket Association Stadium,Kings XI Punjab,field,Deccan Chargers,Kings XI Punjab,198,Deccan Chargers,runs,82.0
+1527693.json,2026-04-12,2026,"Wankhede Stadium, Mumbai",Mumbai Indians,field,Royal Challengers Bengaluru,Mumbai Indians,240,Royal Challengers Bengaluru,runs,18.0
 1527679.json,2026-04-02,2026,"Eden Gardens, Kolkata",Kolkata Knight Riders,field,Sunrisers Hyderabad,Kolkata Knight Riders,226,Sunrisers Hyderabad,runs,65.0
 1359525.json,2023-05-07,2023,"Narendra Modi Stadium, Ahmedabad",Lucknow Super Giants,field,Gujarat Titans,Lucknow Super Giants,227,Gujarat Titans,runs,56.0
 1527681.json,2026-04-04,2026,"Arun Jaitley Stadium, Delhi",Delhi Capitals,field,Mumbai Indians,Delhi Capitals,162,Delhi Capitals,wickets,6.0
@@ -62,6 +63,7 @@ file_name,date,year,venue,toss_winner,toss_decision,first_batting_team,second_ba
 1082624.json,2017-04-29,2017,Maharashtra Cricket Association Stadium,Royal Challengers Bangalore,field,Rising Pune Supergiant,Royal Challengers Bangalore,157,Rising Pune Supergiant,runs,61.0
 1359480.json,2023-04-03,2023,"MA Chidambaram Stadium, Chepauk, Chennai",Lucknow Super Giants,field,Chennai Super Kings,Lucknow Super Giants,217,Chennai Super Kings,runs,12.0
 548364.json,2012-05-12,2012,"MA Chidambaram Stadium, Chepauk",Chennai Super Kings,field,Delhi Daredevils,Chennai Super Kings,114,Chennai Super Kings,wickets,9.0
+1529264.json,2026-04-13,2026,"Rajiv Gandhi International Stadium, Uppal, Hyderabad",Rajasthan Royals,field,Sunrisers Hyderabad,Rajasthan Royals,216,Sunrisers Hyderabad,runs,57.0
 829791.json,2015-05-09,2015,Eden Gardens,Kings XI Punjab,bat,Kings XI Punjab,Kolkata Knight Riders,183,Kolkata Knight Riders,wickets,1.0
 419134.json,2010-03-31,2010,Feroz Shah Kotla,Delhi Daredevils,bat,Delhi Daredevils,Rajasthan Royals,188,Delhi Daredevils,runs,67.0
 1216498.json,2020-10-24,2020,Dubai International Cricket Stadium,Sunrisers Hyderabad,field,Kings XI Punjab,Sunrisers Hyderabad,126,Kings XI Punjab,runs,12.0
