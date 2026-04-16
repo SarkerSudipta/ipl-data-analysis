@@ -139,3 +139,5 @@ output_path = BASE_DIR / "data" / "processed" / "matches_tables.csv"
 output_path.parent.mkdir(parents=True, exist_ok=True) #mkdir if dir doesn't exist
 print(output_path)
 df.to_csv(output_path, index=False)
+
+print(f"JSON files found: {len(json_files)}")
