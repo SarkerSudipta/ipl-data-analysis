@@ -109,6 +109,9 @@ def main():
 
     df_2026 = df[df["year"] == 2026]
 
+    #print the latest 5 matches workflow has downloaded
+    print(df[df["year"] == 2026][["date", "file_name", "venue", "batting_first_team", "batting_first_team"]].tail(5).to_string())
+
     venue_stats_2026 = df_2026.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
         batting_second_won = ("batting_second_won", "sum"),
