@@ -110,7 +110,10 @@ def main():
     df_2026 = df[df["year"] == 2026]
 
     #print the latest 5 matches workflow has downloaded
-    print(df_2026[["date", "venue", "first_batting_team"]].tail(5).to_string()) 
+    df_2026["date"] = pd.to_datetime(df_2026["date"]) 
+    df_2026_sorted = df_2026.sort_values(by="date")
+    print(df_2026_sorted[["date", "venue", "first_batting_team"]].tail(5).to_string()) #sort the 2026 matches using data and print the tail to get the latest matches
+    print(df_2026[["date", "venue", "first_batting_team", "second_batting_team]].tail(5).to_string()) 
 
     venue_stats_2026 = df_2026.groupby("venue").agg(
         batting_first_won = ("batting_first_won", "sum"),
