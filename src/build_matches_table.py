@@ -1,5 +1,6 @@
 '''
- Goal: Loop through all the JSON files and build a table of all matches
+ Goal: 
+ Loop through all the JSON files and build a table of all matches
  This file must be running before running another other analysis scripts like analyze_matches.py
  since analysis depends on the csv table of all matches
 
@@ -137,7 +138,7 @@ print(df.shape)
 
 output_path = BASE_DIR / "data" / "processed" / "matches_tables.csv"
 output_path.parent.mkdir(parents=True, exist_ok=True) #mkdir if dir doesn't exist
-print(output_path)
+# print(output_path)
 df.to_csv(output_path, index=False)
 
 print(f"JSON files found: {len(json_files)}")

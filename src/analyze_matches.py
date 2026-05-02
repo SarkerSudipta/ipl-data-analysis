@@ -1,8 +1,12 @@
 '''
+Dependecy: 
+ build_matches_table.py script needs to be run before running any analytics to get the new match records
+ 
 Analytics:
 1. How many times has batting first team won?
 2. How many times has toss winner won?
 3. Veneu stats
+4. Team batting first and chasing records for 2026 season
 '''
 import pandas as pd
 from pathlib import Path
@@ -108,7 +112,6 @@ def main():
     '''
 
     df_2026 = df[df["year"] == 2026]
-
     #print the latest 5 matches workflow has downloaded
     df_2026["date"] = pd.to_datetime(df_2026["date"]) 
     df_2026_sorted = df_2026.sort_values(by="date")
@@ -138,7 +141,44 @@ def main():
     with open(venue_stats_2026_path, "w") as f:
         f.write(venue_stats_2026.to_markdown())
 
+    '''
+    -----------------------------------------------------
+    Team batting first and batting second records for 2026 season
+    -----------------------------------------------------
+    '''
+    first_batting_teams = df_2026["first_batting_team"].unique()
+    second_batting_teams = df_2026["second_batting_team"].unique()
+    teams = set(first_batting_teams) | set(second_batting_teams)
+    # print(teams)
+    team_df_2026 = pd.DataFrame({
+        "team" : sorted(teams), #sort also converts the set to a list
+        "batting_first_won" : 0,
+        "batting_first" : 0,
+        "chasing_won" : 0,
+        "chasing" : 0,
+        "played" : 0
+    })
 
+    for index, row in df_2026.iterrows():
+        winning_team = row["winner"]
+
+        # batting first won
+        if(row["winner"] == row["first_batting_team"]):
+            losing_team = row["second_batting_team"]
+            team_df_2026.loc[team_df_2026["team"] == winning_team, ["batting_first_won", "batting_first", "played"]] = +1
+            team_df_2026.loc[team_df_2026["team"] == losing_team,  ["chasing", "played"]] += 1
+        # batting second won
+        else:
+            losing_team = row["first_batting_team"]
+            team_df_2026.loc[team_df_2026["team"] == winning_team, ["chasing", "chasing_won", "played"]] += 1
+            team_df_2026.loc[team_df_2026["team"] == losing_team, ["batting_first", "played"]] += 1
+        
+    print(team_df_2026)
+
+
+
+
+    
 
 #
 def highest_score_chased(grouped_df):
