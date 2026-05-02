@@ -165,13 +165,18 @@ def main():
         # batting first won
         if(row["winner"] == row["first_batting_team"]):
             losing_team = row["second_batting_team"]
-            team_df_2026.loc[team_df_2026["team"] == winning_team, ["batting_first_won", "batting_first", "played"]] = +1
+            team_df_2026.loc[team_df_2026["team"] == winning_team, ["batting_first_won", "batting_first", "played"]] += 1
             team_df_2026.loc[team_df_2026["team"] == losing_team,  ["chasing", "played"]] += 1
         # batting second won
-        else:
+        elif row["winner"] == row["second_batting_team"]:
             losing_team = row["first_batting_team"]
             team_df_2026.loc[team_df_2026["team"] == winning_team, ["chasing", "chasing_won", "played"]] += 1
             team_df_2026.loc[team_df_2026["team"] == losing_team, ["batting_first", "played"]] += 1
+
+    team_df_2026["batting_first_won"] = team_df_2026["batting_first_won"].astype(str) + "/" + "/" + team_df_2026["batting_first"].astype(str)
+    team_df_2026["chasing_won"] = team_df_2026["chasing_won"].astype(str) + "/" + team_df_2026["chasing"].astype(str)
+
+    team_df_2026 = team_df_2026[["team", "batting_first_won", "chasing_won"]]
     
     team_2026_path = BASE_DIR / "output" / "team_batting_records_2026.md"
     with open(team_2026_path, "w") as f:
