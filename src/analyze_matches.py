@@ -168,7 +168,7 @@ def main():
             team_df_2026.loc[team_df_2026["team"] == winning_team, ["batting_first_won", "batting_first", "played"]] += 1
             team_df_2026.loc[team_df_2026["team"] == losing_team,  ["chasing", "played"]] += 1
         # batting second won
-        else:
+        elif row["winner"] == row["second_batting_team"]:
             losing_team = row["first_batting_team"]
             team_df_2026.loc[team_df_2026["team"] == winning_team, ["chasing", "chasing_won", "played"]] += 1
             team_df_2026.loc[team_df_2026["team"] == losing_team, ["batting_first", "played"]] += 1
