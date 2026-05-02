@@ -1,7 +1,7 @@
 '''
 Dependecy: 
  build_matches_table.py script needs to be run before running any analytics to get the new match records
- 
+
 Analytics:
 1. How many times has batting first team won?
 2. How many times has toss winner won?
@@ -172,8 +172,10 @@ def main():
             losing_team = row["first_batting_team"]
             team_df_2026.loc[team_df_2026["team"] == winning_team, ["chasing", "chasing_won", "played"]] += 1
             team_df_2026.loc[team_df_2026["team"] == losing_team, ["batting_first", "played"]] += 1
-        
-    print(team_df_2026)
+    
+    team_2026_path = BASE_DIR / "output" / "team_batting_records_2026.md"
+    with open(team_2026_path, "w") as f:
+        f.write(team_df_2026.to_markdown())
 
 
 
